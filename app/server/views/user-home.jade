@@ -1,0 +1,37 @@
+extends user-layout
+- user = typeof(udata) != 'undefined' ? udata : { }
+
+block title
+    title Node.js Login
+block script    
+    script(src="/js/views/user-home.js")
+
+block content
+    block navi
+        .header
+            include user-navi
+    #home-Carousel
+        include user-container
+block footer
+    .footer
+        include user-footer
+        
+//- extends user-layout
+//- - user = typeof(udata) != 'undefined' ? udata : { }
+
+//- block title
+//-     title Node.js Login
+//- block script    
+//-     script(src="/js/views/user-home.js")
+
+//- block content
+//-     .home-content
+//-         block navi
+//-             div.navbar
+//-                 include user-navi
+//-         block container
+//-             #user-content
+//-                 include user-container
+//- block footer
+//-     .footer
+//-         include user-footer        

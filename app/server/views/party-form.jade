@@ -1,0 +1,58 @@
+extends party-layout
+
+block main-content
+    #party-create
+        form(role='form' class="form-horizontal" id="create-party-form" method='post' action='/party/create')
+            fieldset
+                .form-group
+                    label(for='party-des' class="col-sm-10 party-label") 添加描述创建一个新的聚餐
+                hr
+    
+                .form-group
+                    label(for='party-des' class="control-label col-sm-2 party-label") 主题
+                    .col-sm-4
+                        input(class='form-control' id='party-des' name="party_theme")
+    
+                .form-group
+                    label(for='party-des' class="control-label col-sm-2 party-label") 时间
+                    .col-sm-4
+                        input(class='form-control' id='party-time' name="party_time")    
+                .form-group
+                    label(for='party-des' class="control-label col-sm-2 party-label") 地点
+                    .col-sm-4
+                        input(class='form-control' id='party-location' name="party_location")                            
+                .form-group
+                    label(for='party-des' class="control-label col-sm-2 party-label") 个人预算
+                    .col-sm-4
+                        input(class='form-control' id='party-total-fee' name="party_total-fee")                                                    
+                .form-group
+                    label(for='checkboxes' class="control-label col-sm-2 party-label") 菜单
+                    .col-sm-4
+                        .checkbox
+                            label(for='checkboxes-0' class='party-label')
+                                input(type="checkbox" name="checkboxes" id="huoguo" value="huoguo")
+                                | 火锅
+                                a(href="#", data-toggle="popover" id="selected-huoguo-food" class="food-link") 点击查看所选食材
+    
+                        .checkbox
+                            label(for='checkboxes-1' class='party-label')
+                                input(type="checkbox" name="checkboxes" id="kaorou" value="kaorou")
+                                | 烤肉
+                                a(href="#", data-toggle="popover" id="selected-kaorou-food" class="food-link") 点击查看所选食材
+    
+                        .checkbox
+                            label(for='checkboxes-2' class='party-label')
+                                input(type="checkbox" name="checkboxes" id="jiaozi" value="jiaozi")
+                                | 饺子
+                                a(href="#", data-toggle="popover" id="selected-jiaozi-food" class="food-link") 点击查看所选食材
+                .form-group
+                    .col-sm-offset-2.col-sm-10
+                        button(type="submit" class="btn btn-info btn-ctl party-btn") Submit
+                        button(type="button" class="btn btn-info btn-ctl party-btn") Cancel    
+    include modals/huoguo
+    include modals/kaorou
+    include modals/jiaozi
+block footer-script
+    script(src='/js/views/party-scratch.js')
+    script(src="/vendor/datetimepicker/jquery.datetimepicker.js")
+    link(rel="stylesheet" type="text/css" href="/vendor/datetimepicker/jquery.datetimepicker.css")    

@@ -1,0 +1,527 @@
+body {
+    font: 14px Helvetica;
+    background: #999999;
+}
+
+#main {
+    margin: 0px;
+    padding: 0px;
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+}
+
+#main > .flex-content {
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #cccc33;
+    border-radius: 7pt;
+    background: #dddd88;
+    /* background : #ddaabb; */
+    -webkit-flex: 3 1 70%;
+    flex: 3 1 70%;
+    -webkit-order: 2;
+    order: 2;
+}
+
+#main > .flex-nav {
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #8888bb;
+    border-radius: 7pt;
+    /* background: #ccccff; */
+    background : #eeffaa;
+    -webkit-flex: 1 6 10%;
+    flex: 1 6 10%;
+    -webkit-order: 1;
+    order: 1;
+}
+  
+#main > .flex-buddy {
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #8888bb;
+    border-radius: 7pt;
+    /* background: #ccccff; */
+    background : #eeffaa;
+    -webkit-flex: 1 6 20%;
+    flex: 1 6 20%;
+    -webkit-order: 3;
+    order: 3;
+}
+ 
+.header {
+    display: block;
+    margin: 4px;
+    padding: 5px;
+    min-height: 100px;
+    border: 1px solid #eebb55;
+    border-radius: 7pt;
+    /* background: #ffeebb; */
+    background : black;
+    top : 0;
+}
+
+.footer{
+    display: block;
+    padding: 5px;
+    min-height: 30px;
+    border: 1px solid #eebb55;
+    border-radius: 7pt;
+    background: #ffeebb;
+    margin-bottom : 0px;                    
+}
+/*************** header ***************************/
+/* .hd-search .hd-search-input { */
+/*     width: 470px; */
+/* } */
+
+#nav-main {
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;    
+}
+
+.nav-fill {
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #cccc33;
+    border-radius: 7pt;
+    /* background: #dddd88; */
+    -webkit-flex: 3 6 70%;
+    flex: 3 6 70%;
+    -webkit-order: 2;
+    order: 2;
+}
+
+.nav-left {
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #8888bb;
+    border-radius: 7pt;
+    /* background: #ccccff; */
+    -webkit-flex: 1 6 20%;
+    flex: 1 6 10%;
+    -webkit-order: 1;
+    order: 1;
+}
+
+.nav-left .dropdown{
+    width : 100px;
+    margin-left : auto;
+    margin-right : auto;
+}
+    
+.nav-left button{
+    /* margin-left : 20px; */
+    /* margin-right : 20px; */
+    /* margin-top : 10px; */
+    /* margin-bottomf : 5px; */
+    margin-top : 12px;
+    margin-bottom : 5px;
+}
+
+.nav-right {
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #8888bb;
+    border-radius: 7pt;
+    /* background: #ccccff; */
+    -webkit-flex: 1 6 20%;
+    flex: 1 6 20%;
+    -webkit-order: 3;
+    order: 3;
+    /* margin-left : auto; */
+    /* margin-right : auto; */
+}
+
+.hd-search {
+    margin-top : 20px;
+    margin-left : 100px;
+    width : 50%;
+}
+
+#nav-tools {
+    margin-top : 20px;
+    margin-left : auto;
+    margin-right : auto;
+    min-width : 230px;
+}
+    
+#nav-tools-home, #nav-tools-user, #nav-tools-logout{
+    border: 1px solid;
+    padding : 10px;
+    border-radius : 7pt;
+    margin-left : 5px;
+    margin-right : 5px;
+}
+
+#nav-link-prime{
+    margin-left : 10px;
+    margin-top : 10px;
+}
+
+/*************** Too narrow to support three columns ********/
+@media all and (max-width: 640px) {
+    #nav-main {
+        -webkit-flex-flow: column;
+        flex-flow: column;    
+    }
+    .nav-fill, .nav-right, .nav-left{
+        min-height: 80px;
+        max-height: 80px;
+    }
+
+    #main, #page {
+        -webkit-flex-flow: column;
+        flex-flow: column;
+    }
+
+    #main > flex-content, #main > flex-nav, #main > flex-buddy {
+        /* Return them to document order */
+        -webkit-order: 0;
+        order: 0;
+    }
+  
+    #main > flex-nav, #main > flex-buddy, .footer {
+        min-height: 50px;
+        max-height: 50px;
+    }
+
+    .header{
+        min-height: 300px;
+        max-height: 300px;
+    }
+        
+}
+
+/******************** modal ************************/
+.modal-body hr{
+    margin-top : 2px;
+}
+.modal-body td label{
+    width : 70px;
+}
+.modal-body td input{
+    width : 50px;
+}
+
+#create-party-form{
+    /* color : white; */
+}
+.popover-content,
+.popover-title{
+    color : black;
+}
+
+.food-link{
+    padding : 10px;
+}
+
+.btn-ctl{
+    margin : 10px;
+}
+
+.popover{
+    width : 300px;
+}
+
+/***************** carousel ************************/
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 55%;
+    margin: auto;
+}
+#myCarousel{
+    width : 100%;
+    margin-left : auto;
+    margin-right : auto;
+    margin-bottom : 10px;
+}
+   
+/*************** buddy ***************************/
+#webpager .wp_top_tabs {
+    height: 50px;
+    /* box-shadow: -3px -3px 6px 0 #1d69a6; */
+    background-color: #227dc5;
+    overflow: hidden;
+}
+
+#webpager .wp_top_tabs .wp_top_tab {
+    height: 50px;
+    background-color: #227dc5;
+    float: left;
+    position: relative;
+    cursor: pointer;
+}
+
+#webpager .wp_top_tabs .wp_top_tab .title {
+    display: none;
+}
+
+#webpager .wp_top_tabs .recent.on {
+    width: 125px;
+    background-position: 17px -303px;
+}
+
+#webpager .wp_top_tabs .wp_top_tab.on .title {
+    display: inline;
+    color: #fff;
+    font-size: 15px;
+    line-height: 50px;
+    padding-left: 50px;
+}
+
+/* #webpager #buddy .collector_title { */
+/*     height: 34px; */
+/*     width: 238px; */
+/*     line-height: 34px; */
+/*     background-color: #f6f6f6; */
+/* } */
+#webpager #wp_top_tabs {
+    height: 34px;
+    width: 238px;
+    line-height: 34px;
+    background-color: #f6f6f6;
+}
+
+#webpager .wp_top_tabs .friends.left {
+    width: 55px;
+    /* background-position: 17px -138px; */
+}
+
+#webpager .wp_top_tabs .notify {
+    width: 55px;
+    padding-top : 20px;
+    /* background-position: 17px -38px; */
+}
+
+/* #webpager .wp_top_tabs .right.others { */
+/*     width: 100px; */
+/*     background-position: 17px -138px; */
+/* } */
+
+.buddy-item {
+    height : 40px;
+}
+
+/********************** chat **********************/
+@media only screen and (max-width : 540px) {
+    .chat-sidebar {
+        display: none !important;
+    }
+    
+    .chat-popup {
+        display: none !important;
+    }
+}
+
+.chat-sidebar {
+    width: 200px;
+    position: fixed;
+    height: 100%;
+    right: 0px;
+    top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid rgba(29, 49, 91, .3);
+}
+
+.sidebar-name {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 4px;
+    font-size: 12px;
+}
+
+.sidebar-name span {
+    padding-left: 5px;
+}
+
+.sidebar-name a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.sidebar-name:hover {
+    background-color:#e1e2e5;
+}
+
+.sidebar-name img {
+    width: 32px;
+    height: 32px;
+    vertical-align:middle;
+}
+
+.popup-box {
+    display: none;
+    position: fixed;
+    bottom: 0px;
+    right: 220px;
+    height: 285px;
+    background-color: rgb(237, 239, 244);
+    width: 300px;
+    border: 1px solid rgba(29, 49, 91, .3);
+}
+
+.popup-box .popup-head {
+    background-color: #6d84b4;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    clear: both;
+}
+
+.popup-box .popup-head .popup-head-left{
+    float: left;
+}
+
+.popup-box .popup-head .popup-head-right{
+    float: right;
+    opacity: 0.5;
+}
+
+.popup-box .popup-head .popup-head-right a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.popup-box .popup-messages{
+    height: 80%;
+    overflow-y: scroll;
+}
+
+.popup-box .message-input{
+    height: 20%;
+    width : 100%;
+    overflow-y: scroll;
+}
+
+/*****************************/
+.party-ctl {
+    width : 100%;
+}
+
+#flex-partyList {
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-flex-flow: column;
+    flex-flow: column;    
+    height : 500px;
+}
+
+#partyList {
+    margin: 4px;
+    padding: 5px;
+    min-height: 450px;
+    /* height : 95%; */
+    border: 1px solid #eebb55;
+    border-radius: 7pt;
+    /* background: #ffeebb; */
+    background : #aabbda;
+    -webkit-flex: 1 6 90%;
+    flex: 1 6 90%;
+    -webkit-order: 1;
+    order: 1;
+}
+
+#partiesPagination {
+    margin: 4px;
+    padding: 5px;
+    /* min-height: 100px; */
+    /* height : 5%; */
+    -webkit-flex: 1 6 10%;
+    flex: 1 6 10%;
+    -webkit-order: 2;
+    order: 2;    
+    border: 1px solid #eebb55;
+    border-radius: 7pt;
+    /* background: #ffeebb; */
+    background : #aabbda;
+}
+
+/* .flex-content #flex-partyList{ */
+/*     margin: 0px; */
+/*     padding: 0px; */
+/*     height : 100%; */
+/*     weight : 100%; */
+/* } */
+/* .flex-content #partyList{ */
+/*     width : 100%; */
+/*     height : 570px; */
+/* } */
+/* .flex-content #partiesPagination { */
+/*     width : 100%; */
+/*     height : 30px; */
+/* } */
+
+.profile-status.online{
+    background-image: url("/img/social/chat-online.png");
+    background-repeat: no-repeat;
+}
+
+.profile-status.offline{
+    background-image: url("/img/social/chat-offline.png");
+    background-repeat: no-repeat;
+}
+
+.profile-status{
+    display: block;
+    float: right;
+    height: 7px;
+    margin: 8px 4px 0;
+    width: 7px;
+}
+
+/****************** buddy notification *********************/
+#notification-count {
+    padding: 3px 7px 3px 7px;
+    background: #cc0000;
+    color: #ffffff;
+    font-weight: bold;
+    /* margin-left: 77px; */
+    display : none;
+    border-radius: 9px;
+    position: absolute;
+    margin-top: -11px;
+    font-size: 11px;
+}
+
+
+
+
+/******************* shuttle bus **************************/
+#shuttle-bus-content{
+    /* color : white; */
+}
+
+#shuttle-bus-dashboard{
+    display : table-cell;
+    width : 80px;
+}
+
+#shuttle-bus-scratch{
+    display : table-cell;
+    width : auto;
+}
+
+/****************** profile *************************/
+#profile {
+    margin-left : auto;
+    margin-right : auto;
+    border : solid 1px;
+}
+
+#profile table {
+    width : 400px;
+}
+
+#friend-indicator .friend-btn{
+    border-radius : 7px;
+    width : 70px;
+}

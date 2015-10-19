@@ -1,0 +1,36 @@
+doctype html
+html
+    head
+        block title
+        block script
+        link(rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")        
+        link(rel='stylesheet', href='/css/style.css')
+        script(src="/vendor/jquery-1.11.3.min.js")
+        script(src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+        script(src='/vendor/jquery.form.js')
+        
+        script(src='/vendor/bootstrap-modal.js')
+        script(src='/vendor/bootstrap-transition.js')
+        
+        script(src="https://cdn.socket.io/socket.io-1.2.0.js")
+        script(src='/js/form-validators/accountValidator.js')    
+        script(src='/js/views/buddy.js')
+        script(src='/js/views/home.js')
+        script(src='/js/controllers/homeController.js')                
+    body
+        block Container
+            #jx-Container
+                block header
+                    include user-navi                    
+                block main
+                    #jx-main
+                        block sidebar
+                            include sidebar
+                        #main                            
+                            block content
+                                block main-nav
+                                block main-content
+        block chat
+            include buddy
+        block footer-script
+    block footer

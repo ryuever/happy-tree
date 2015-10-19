@@ -1,0 +1,78 @@
+extends party-layout
+
+
+block main-content
+    #partyList
+        - var page = parseInt(currentPage)
+        - var pages = parseInt(totalPages)
+        - var party_list = records
+        - console.log("on client partylist", party_list)
+        - var contains = function(arr, item){
+        -     for (var i =0; i < arr.length; i++){
+        -         if (item === arr[i]){
+        -             return true;
+        -         }
+        -     }
+        -     return false;
+        - };        
+        #parties-table(style="text-align:center")
+            table.table.table-bordered.white-color
+                thread
+                    tr
+                        th 主题
+                        th 时间
+                        th 料理
+                        th 预算人均
+                        th 负责人
+                        // th 参加
+                each item in party_list
+                    tr
+                        td
+                            a(href="/party/#{item._id}")= item.party_theme
+                        td= item.party_time
+                        // td= Object.keys(item.party_menu)
+                        td   menu
+                        td= item.party_total_fee
+                        td= item.manager 
+                        //- td
+                        //-     input(type="checkbox" value= "" checked=contains(item.member, udata.name) ? "checked":"" )                        
+    #partiesPagination
+        ul.pagination
+            - if(page > 1){
+                li
+                    a(href="?page=#{page-1}") &laquo;    
+            - }else{
+                li
+                    a(href="?page=1") &laquo;    
+            - }
+            - if(pages < 5){
+                - for (var i = pages-1; i>=0; i--){
+                    li
+                        // a(href="?page=#{parseInt(pages)-i}")= #{parseInt(pages)-i}
+                        a(href="?page=#{pages-i}")= pages-i
+                - }
+            - }else {
+                - if(page <= 3){
+                    - for(var i = 1; i<= 5; i++){
+                        li 
+                            a(href="?page=#{i}") #{i}
+                    - }                            
+                - }else if(page + 2 > pages){
+                    - for(var i = 4; i>=0; i--){
+                        li 
+                            a(href="?page=#{pages-i}") #{pages-i}
+                    - }
+                - } else {
+                    - for(var i = -2; i< 3; i++){
+                        li 
+                            a(href="?page=#{page+i}") #{page+i}
+                    - }
+                - }
+            - }        
+            - if (page >= pages){
+                li
+                    a(href="?page=#{pages}") &raquo;    
+            - }else{
+                li
+                    a(href="?page=#{page+1}") &raquo;    
+            - }    

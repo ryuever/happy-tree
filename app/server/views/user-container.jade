@@ -1,0 +1,36 @@
+.container
+    h2.home_caption JAIST
+    #myCarousel.carousel.slide
+        ol.carousel-indicators
+            li.item1.active
+            li.item2
+            li.item3
+            li.item4
+        div(class="carousel-inner" role="listbox")
+            .item.active
+                img(src="/img/mengmengda1.jpg" alt="mengmengda")
+                .carousel-caption
+                    h3 骞哥一家要去芬兰
+
+            .item
+                img(src="/img/mengmengda2.jpg" alt="mengmengda")
+                .carousel-caption
+                    h3 于萌萌哒回家了
+                    
+            .item
+                img(src="/img/mengmengda3.jpg" alt="mengmengda")
+                .carousel-caption
+                    h3 kho姐姐毕业啦
+                    
+            .item
+                img(src="/img/mengmengda4.jpg" alt="mengmengda")
+                .carousel-caption
+                    h3 轩轩回来了
+                    
+        a(class = "left carousel-control" href="#myCarousel" role="button")
+            span(class="glyphicon glyphicon-chevron-left" aria-hidden="true")
+            span(class="sr-only") Previous
+
+        a(class="right carousel-control" href="#myCarousel" role="button")
+            span(class="glyphicon glyphicon-chevron-right" aria-hidden="true")
+            span(class="sr-only") Next

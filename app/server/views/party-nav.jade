@@ -1,0 +1,15 @@
+- user = typeof(udata) != 'undefined' ? udata : { }
+block party-nav
+    nav(class="navbar navbar-default")    
+        .container-fluid            
+            div(id="navbar" class="navbar-collapse collapse")
+                ul(class="nav navbar-nav")
+                    li
+                        a(href="/party/create") 创建
+                    li
+                        a(href="/#{user._id}/party/supervision") 管理
+                    li
+                        a(href="/partylist") 列表
+                    li
+                        a(href="/#{user._id}/party/attendance") 参加
+                        

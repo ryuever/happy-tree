@@ -1,0 +1,29 @@
+extends user-layout
+- user = typeof(udata) != 'undefined' ? udata : { }
+
+block script
+    script(src='/vendor/jquery.form.js')
+    script(src="https://cdn.socket.io/socket.io-1.2.0.js")
+    script(src='/js/form-validators/accountValidator.js')    
+    script(src='/js/views/party-dashboard.js')    
+    script(src='/js/views/buddy.js')
+    
+    block specified-script
+
+block content
+    block navi
+        .header
+            include user-navi
+    #main
+        block container
+            .flex-nav
+                include party-dashboard
+            .flex-content
+                #flex-partyList
+                    block party-scratch
+                    block pagination
+            .flex-buddy
+                include buddy              
+block footer
+    .footer
+        include user-footer        

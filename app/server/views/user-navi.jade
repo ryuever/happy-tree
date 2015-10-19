@@ -1,0 +1,38 @@
+- user = typeof(udata) != 'undefined' ? udata : { }
+div#jxheader.hd-wraper
+    div.hd-main
+        div.hd-left
+            span.verticalAlign
+            div.middle
+                span JAIST
+        div.hd-fill
+            span.verticalAlign
+            div.middle
+                div.temp.hd-search
+                    form#search-friends(method="post")
+                        .input-group
+                            input(type="text" id="hd-search-item" class="hd-search-input" placeholder="搜索好友，公共主页，状态")
+                            div.middle#glb-friend-search-bar
+                                button.submit(type="submit")
+                                    i.glyphicon.glyphicon-search                    
+                a
+                    img(class="middle photo" border="0" src="http://www.w3school.com.cn/i/eg_cute.gif")                    
+                div.middle.hd-account
+                    span.account#username #{user.name}
+                    span.account 两天
+                    span.account#user_id(style="display:none;") #{user._id}
+        div.hd-right
+            span.verticalAlign
+            div.middle
+                div.temp
+                    // img.setting(src="/img/setting-icon.png")
+                    div.dropdown
+                        img(class="dropdown-toggle setting" data-toggle="dropdown" src="/img/setting-icon.png")                            
+                        ul.dropdown-menu
+                            li
+                                // a(href='' id='logout') 退出
+                                button(id='logout' class="btn btn-default") 退出
+                                // span(id="logout") 退出
+
+include modals/alert
+include modals/confirm

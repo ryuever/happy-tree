@@ -1,0 +1,13 @@
+extends layout
+- user = typeof(udata) != 'undefined' ? udata : { }
+
+block main-nav
+    include profile-nav
+block main-content
+    #friends
+        ul
+            each item in records
+                - console.log("records", records)
+                li
+                    a(href="/#{item._id}/profile") #{item.name}
+                li= item.country

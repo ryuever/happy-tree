@@ -1,0 +1,33 @@
+#chatbox
+    .inactive
+    .active(style="display:none")
+        #header
+            span#rival-name
+            span#online-status            
+        #conversation-box
+        #conversation-input
+            input(id='message-input')
+#webpager
+    .wp_top_tabs
+        span.verticalAlign
+        div(class = "wp_top_tab notify png middle ")
+            img.app-icon(src="/img/notify.png")
+            span#notification-count 0
+        div(class = "wp_top_tab friends png middle" )
+            img.app-icon(src="/img/friends.png")
+        div(class = "wp_top_tab others png middle" ) 
+            p 其它
+    div#chat-container
+        div.wp_search_box
+            div.wp_search_input_box
+                input(type="text"  class="wp_search_input" placeholder="找好友或建讨论组")
+            div.mgr_wrap
+            div.create_group_wrap            
+        div(id="buddy-collection")
+        div(id="buddy" style="height: 590px;")
+            div(class="wp_collector_box" style="height: 500px;")
+                #friends.wp_collector.friends
+                    div(class="collector_title friends" data-type="friends")
+                        span.text 全部好友
+                        span.num
+                #group.wp_collector.groups

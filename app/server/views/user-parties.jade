@@ -1,0 +1,175 @@
+extends party-scratch-layout
+
+block specified-script
+
+block party-scratch
+    #partyList
+        - var page = parseInt(currentPage)
+        - var pages = parseInt(totalPages)
+        // - console.log("page, pages in user-parties.jade file", page, pages)
+        - var party_list = records
+        - var contains = function(arr, item){
+        -     for (var i =0; i < arr.length; i++){
+        -         if (item === arr[i]){
+        -             return true;
+        -         }
+        -     }
+        -     return false;
+        - };        
+        //- form(role='form' class="form-horizontal" id="create-party-form" method='post' action='/party/create')
+        //-     fieldset
+        //-         .form-group
+        //-             label(for='party-des' class="col-sm-10 party-label") 所有聚餐列表
+        //-         hr
+    
+        #parties-table(style="text-align:center")
+            table.table.table-bordered.white-color
+                thread
+                    tr
+                        th 主题
+                        th 时间
+                        th 料理
+                        th 预算人均
+                        th 负责人
+                        th 参加
+                each item in party_list
+                    tr
+                        td
+                            a(href="/parties/#{item._id}")= item.party_theme
+                        td= item.party_time
+                        // td= Object.keys(item.party_menu)
+                        td  menu
+                        td= item.member
+                        td= item.manager 
+                        td
+                            input(type="checkbox" value= "" checked=contains(item.member, udata.name) ? "checked":"" )                        
+block pagination
+    #partiesPagination
+        ul.pagination
+            - if(page > 1){
+                li
+                    a(href="?page=#{page-1}") &laquo;    
+            - }else{
+                li
+                    a(href="?page=1") &laquo;    
+            - }
+            - if(pages < 5){
+                - for (var i = pages-1; i>=0; i--){
+                    li
+                        // a(href="?page=#{parseInt(pages)-i}")= #{parseInt(pages)-i}
+                        a(href="?page=#{pages-i}")= pages-i
+                - }
+            - }else {
+                - if(page <= 3){
+                    - for(var i = 1; i<= 5; i++){
+                        li 
+                            a(href="?page=#{i}") #{i}
+                    - }                            
+                - }else if(page + 2 > pages){
+                    - for(var i = 4; i>=0; i--){
+                        li 
+                            a(href="?page=#{pages-i}") #{pages-i}
+                    - }
+                - } else {
+                    - for(var i = -2; i< 3; i++){
+                        li 
+                            a(href="?page=#{page+i}") #{page+i}
+                    - }
+                - }
+            - }        
+            - if (page >= pages){
+                li
+                    a(href="?page=#{pages}") &raquo;    
+            - }else{
+                li
+                    a(href="?page=#{page+1}") &raquo;    
+            - }    
+    
+
+
+
+
+
+
+// - extends party-scratch-layout
+//- block party-scratch
+//-     #partyList
+//-         - var page = parseInt(currentPage)
+//-         - var pages = parseInt(totalPages)
+//-         - console.log("page, pages in user-parties.jade file", page, pages)
+//-         - var party_list = records
+//-         - var contains = function(arr, item){
+//-         -     for (var i =0; i < arr.length; i++){
+//-         -         if (item === arr[i])
+//-         -             return true;
+//-         -     }
+//-         -     return false;
+//-         - };
+//-         //- form(role='form' class="form-horizontal" id="create-party-form" method='post' action='/party/create')
+//-         //-     fieldset
+//-         //-         .form-group
+//-         //-             label(for='party-des' class="col-sm-10 party-label") 所有聚餐列表
+//-         //-         hr
+    
+//-         #parties-table(style="text-align:center")
+//-             table.table.table-bordered.white-color
+//-                 thread
+//-                     tr
+//-                         th 主题
+//-                         th 时间
+//-                         th 料理
+//-                         th 预算人均
+//-                         th 负责人
+//-                         th 参加
+//-                 each item in party_list
+//-                     tr
+//-                         td
+//-                             a(href="/parties/#{item._id}")= item.party_theme
+//-                         td= item.party_time
+//-                         // td= Object.keys(item.party_menu)
+//-                         td  menu
+//-                         td= item.member
+//-                         td= item.manager 
+//-                         td
+//-                             input(type="checkbox" value= "" checked=contains(item.member, udata.name) ? "checked":"" )                        
+//- block pagination
+//-     #partiesPagination
+//-         ul.pagination
+//-             - if(page > 1){
+//-                 li
+//-                     a(href="?page=#{page-1}") &laquo;    
+//-             - }else{
+//-                 li
+//-                     a(href="?page=1") &laquo;    
+//-             - }
+//-             - if(pages < 5){
+//-                 - for (var i = pages-1; i>=0; i--){
+//-                     li
+//-                         // a(href="?page=#{parseInt(pages)-i}")= #{parseInt(pages)-i}
+//-                         a(href="?page=#{pages-i}")= pages-i
+//-                 - }
+//-             - }else {
+//-                 - if(page <= 3){
+//-                     - for(var i = 1; i<= 5; i++){
+//-                         li 
+//-                             a(href="?page=#{i}") #{i}
+//-                     - }                            
+//-                 - }else if(page + 2 > pages){
+//-                     - for(var i = 4; i>=0; i--){
+//-                         li 
+//-                             a(href="?page=#{pages-i}") #{pages-i}
+//-                     - }
+//-                 - } else {
+//-                     - for(var i = -2; i< 3; i++){
+//-                         li 
+//-                             a(href="?page=#{page+i}") #{page+i}
+//-                     - }
+//-                 - }
+//-             - }        
+//-             - if (page >= pages){
+//-                 li
+//-                     a(href="?page=#{pages}") &raquo;    
+//-             - }else{
+//-                 li
+//-                     a(href="?page=#{page+1}") &raquo;    
+//-             - }    

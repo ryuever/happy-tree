@@ -1,0 +1,36 @@
+extends layout
+
+block footer-script
+    script(src='/js/views/profile.js')
+
+block main-nav
+    include profile-nav
+block main-content
+    - user = typeof(udata) != 'undefined' ? udata : { }
+    - var contains = function(arr, item){
+    -     for (var i =0; i < arr.length; i++){
+    -         if (item === arr[i]){
+    -             return true;
+    -         }
+    -     }
+    -     return false;
+    - };                    
+    div(id="friend-indicator")
+        - console.log("ref_user, udata.name in user-profile.jade", ref_user, udata.name, user_friends) 
+        - if(ref_user != udata.name){
+            - if (contains(user_friends, ref_user)){
+                button(class="friend-btn" id="followed") 好友
+                button(class="friend-btn" id="following" hidden) 加关注                        
+            - }else{
+                button(class="friend-btn" id="followed" hidden) 好友
+                button(class="friend-btn" id="following") 加关注
+            - }                    
+        - }    
+    div(id="profile")
+        table.table
+            tr
+                th 名字
+                th#ref-name #{name}
+            tr  
+                th 国家
+                th #{country}                        

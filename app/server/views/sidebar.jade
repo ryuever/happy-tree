@@ -1,0 +1,25 @@
+- user = typeof(udata) != 'undefined' ? udata : { }
+div#jx-sidebar
+    div#app-nav-content
+        ul.app-nav-list
+            li.app-nav-item
+                a.app-link(href='/#{user._id}/home')
+                    img.app-icon(src="/img/home.png")
+                    span.app-title 首页
+        ul.app-nav-list
+            li.app-nav-item
+                a.app-link(href='/#{user._id}/profile')
+                    img.app-icon(src="/img/profile.png")
+                    span.app-title 个人主页
+        ul.app-nav-list
+            li.app-nav-item
+                a.app-link(href='/#{user._id}/friendlist')
+                    img.app-icon(src="/img/friends.png")
+                    span.app-title 好友
+        ul.app-nav-list
+            li.app-nav-item
+                a.app-link(href="/party/create")
+                    img.app-icon(src="/img/albumlist.png")
+                    span.app-title 聚餐
+                    
+                    

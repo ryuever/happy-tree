@@ -1,0 +1,74 @@
+extends party-layout
+
+block main-content
+    - var contains = function(arr, item){
+    -     for (var i =0; i < arr.length; i++){
+    -         if (item === arr[i]){
+    -             return true;
+    -         }
+    -     }
+    -     return false;
+    - };        
+
+    - var party_list = record
+    - var member_length = record.member
+    - console.log("udata.member", record)    
+    - console.log("record.location", record.location)        
+    form(role='form' class="form-horizontal" id="show-party" method='post' action='/parties/#{record._id}')
+        fieldset
+            .form-group
+                label(for='party-caption' class="col-sm-10 party-label") Party Information
+                span#role= udata.name === record.manager? "管理员":"用户"
+            hr
+            .form-group
+                label(for='party-des' class="control-label col-sm-2 party-label") 主题
+                .col-sm-4
+                    input(class='form-control' id='party-des' name="party_theme" value="#{record.party_theme}"
+                        disabled = (udata.name === record.manager)? false:true)
+            .form-group
+                label(for='party-time' class="control-label col-sm-2 party-label") 时间
+                .col-sm-4
+                    input(class='form-control' id='party-time' name="party_time" value="#{record.party_time}"
+                        disabled = (udata.name === record.manager)? false:true)
+            .form-group
+                label(for='party-total-fee' class="control-label col-sm-2 party-label") 总费用
+                .col-sm-4
+                    input(class='form-control' id='party-total-fee' name="party_total_fee" 
+                        value= (record.party_total_fee)?record.party_total_fee:0
+                        disabled = (udata.name === record.manager)? false:true)                    
+            .form-group
+                label(for='party-fee-average' class="control-label col-sm-2 party-label") 人均
+                .col-sm-4
+                    input(class='form-control' id='party-fee-average' name="party_fee_average"
+                        value= record.party_total_fee/record.member.length 
+                        disabled=true)
+            .form-group
+                label(for='party-location' class="control-label col-sm-2 party-label") 地点
+                .col-sm-4
+                    input(class='form-control' id='party-location' name="party_location" value= record.party_location
+                        disabled = (udata.name === record.manager)? false:true)                    
+            .form-group
+                label(for='party-participant' class="control-label col-sm-2 party-label") 参与者
+                .col-sm-4
+                    each item in record.member
+                        button(class="btn btn-default party-member" id=item disabled=true value=item)= item
+
+            .form-group(style="display : #{udata.name === record.manager ? 'none':'block'};")
+                label(for='party-participant' class="control-label col-sm-2 party-label")参加
+                .col-sm-4
+                    if(contains(record.member, udata.name))
+                        input(type="checkbox" data-toggle="toggle"  data-on="Yes" data-off="No" name="attend" id="attend-indicator" checked)
+                    else
+                        input(type="checkbox" data-toggle="toggle"  data-on="Yes" data-off="No" name="attend" id="attend-indicator")
+    
+            .form-group
+                .col-sm-offset-2.col-sm-10
+                    button(type="submit" class="btn btn-info btn-ctl party-btn") Submit
+                    button(type="button" class="btn btn-info btn-ctl patty-btn") Cancel    
+                        
+block footer-script
+    link(rel="stylesheet" href="/vendor/bootstrap-toggle.min.css")
+    script(src="/vendor/bootstrap-toggle.min.js")
+    script(src="/js/controllers/party-handler.js")    
+    
+                        // value= ((record.party_total_fee)?record.party_total_fee:0)/recrod.memeber.length    
